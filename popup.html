@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ClassAid</title>
+  <style>
+    body { font-family: Arial, sans-serif; width: 360px; padding: 12px; }
+    h2 { margin: 0 0 8px; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 10px; margin: 10px 0; }
+    .row { display: flex; gap: 8px; align-items: center; }
+    button { cursor: pointer; }
+    .entry { border-top: 1px solid #eee; padding-top: 8px; margin-top: 8px; }
+    .muted { color: #666; font-size: 12px; }
+    input[type="text"], input[type="datetime-local"] { width: 100%; padding: 6px; }
+    .task { border-top: 1px solid #eee; padding-top: 8px; margin-top: 8px; }
+    .task-title { font-weight: bold; }
+  </style>
+</head>
+
+<body>
+  <h2>ClassAid</h2>
+
+  <div class="card">
+    <div class="row" style="justify-content: space-between;">
+      <div><strong>History</strong></div>
+      <button id="clearHistory">Clear</button>
+    </div>
+
+    <label class="muted">
+      <input type="checkbox" id="showMinutes" />
+      Show raw minutes
+    </label>
+
+    <div class="row" style="margin-top:8px;">
+      <button id="btnLonger">Took Longer</button>
+      <button id="btnShorter">Took Shorter</button>
+    </div>
+
+    <div id="history" class="muted" style="margin-top:8px;">Loading...</div>
+  </div>
+
+  <div class="card">
+    <strong>Assignment Dashboard</strong>
+    <div class="muted">Add a task with a due date for reminders.</div>
+
+    <div style="margin-top:8px;">
+      <input id="taskTitle" type="text" placeholder="Task title (required)" />
+    </div>
+    <div style="margin-top:8px;">
+      <input id="taskCourse" type="text" placeholder="Course (optional)" />
+    </div>
+    <div style="margin-top:8px;">
+      <input id="taskDue" type="datetime-local" />
+    </div>
+    <div class="row" style="margin-top:8px;">
+      <button id="addTask">Add Task</button>
+    </div>
+
+    <div id="tasks" class="muted" style="margin-top:8px;">Loading tasks...</div>
+  </div>
+
+  <div class="card">
+    <strong>Analytics</strong>
+    <div id="analytics" class="muted" style="margin-top:8px;">Loading analytics...</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

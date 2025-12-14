@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "ClassAid Time Estimator",
+  "version": "1.0",
+  "description": "Estimates assignment time on Canvas, tracks progress, and reminds you of due dates.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "*://*.instructure.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.instructure.com/courses/*/assignments/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ClassAid"
+  }
+}
