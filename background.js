@@ -22,7 +22,7 @@ function defaultPreferences() {
 function scheduleReminder(taskId, dueTimestamp, remindMinutesBefore) {
   
   const when = dueTimestamp - remindMinutesBefore * 60 * 1000;
-  if (when <= Date.now()) return; // don't schedule reminders in the past
+  if (when <= Date.now()) return; 
 
   const alarmName = `TASK_REMINDER:${taskId}`;
   chrome.alarms.create(alarmName, { when });
@@ -244,3 +244,4 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   sendResponse({ status: "error", error: "Unknown message type" });
   return false;
 });
+
